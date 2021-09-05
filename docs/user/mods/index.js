@@ -5,6 +5,7 @@ import { helpers } from '../../shared-store/index.js';
 import Menu from '../../components/menu.js';
 import RepositoryList from '../../components/repository-list.js';
 import searchRepositories from '../../api/search-repositories.js';
+import getSignedInUser from '../../api/get-signed-in-user.js';
 
 const { useEffect, useReducer, useState } = React;
 
@@ -25,14 +26,7 @@ function App() {
   }
 
   useEffect(async () => {
-    const response = await fetch('https://api.github.com/user', {
-      headers: {
-        'Accept': 'application/vnd.github.v3+json',
-        'Authorization': `token ${state.github_token}`,
-      }
-    });
-    const result = await response.json();
-    const { login } = result;
+    const { login } = await getSignedInUser(state.github_token);
 
     const games_and_mods = [...state.favorite_games, 'mod'];
     const search = `user:${login}`;

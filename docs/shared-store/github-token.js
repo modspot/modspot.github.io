@@ -1,14 +1,16 @@
 import { dev_token, client_id } from '../constants.js';
 
 const token_key = 'github-auth-token';
+const github_username_key = 'github-login';
 
 export const actions = {
-  setGithubToken(state, token) {
+  setGithubToken(state, { token, login }) {
     localStorage.setItem(token_key, token);
 
     return {
       ...state,
-      github_token: token
+      github_token: token,
+      github_login: login
     };
   },
 
@@ -21,9 +23,10 @@ export const actions = {
 
     return {
       ...state,
-      github_token: null
+      github_token: null,
+      github_login: null
     };
-  }
+  },
 
 };
 
@@ -38,9 +41,22 @@ export const helpers = {
     }
 
     return localStorage[token_key];
+  },
+
+  getAuthenticatedUserName() {
+    if (!localStorage[github_username_key] || localStorage[github_username_key] === "undefined") {
+      if (window.location.hostname === 'localhost') {
+        return 'local-owner';
+      }
+
+      return 'Unknown';
+    }
+
+    return localStorage[github_username_key];
   }
 };
 
 export const state = {
-  github_token: helpers.fetchGithubToken()
+  github_token: helpers.fetchGithubToken(),
+  github_login: helpers.getAuthenticatedUserName()
 };

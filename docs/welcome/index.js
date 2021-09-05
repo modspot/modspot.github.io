@@ -1,6 +1,7 @@
 import html from '../libs/html.js';
 import { initial_state, reducer } from './reducer.js';
 import getAccessToken from '../api/get-access-token.js';
+import getSignedInUser from '../api/get-signed-in-user.js';
 
 import Menu from '../components/menu.js';
 
@@ -16,9 +17,16 @@ const { useEffect, useReducer } = React;
 function App() {
   const [state, dispatch] = useReducer(reducer, initial_state);
 
-  useEffect(() => {
-    getAccessToken(params.code).then(token => {
-      dispatch({ type: 'setGithubToken', payload: token });
+  useEffect(async () => {
+    const token = await getAccessToken(params.code);
+    const { login } = await getSignedInUser(token);
+
+    dispatch({
+      type: 'setGithubToken',
+      payload: {
+        token,
+        login
+      }
     });
   }, []);
 

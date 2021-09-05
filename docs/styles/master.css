@@ -50,9 +50,17 @@ a {
   font-size: 1em;
 }
 
+button.text-style {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  font-family: inherit;
+}
+
 a:hover, button.text-style:hover, button[type="submit"] {
   filter: brightness(1.1);
-  text-decoration: underline;
+  text-decoration: underline!important;
 }
 
 hr {
@@ -74,14 +82,6 @@ hr {
 
 .flex.center {
   justify-content: center;
-}
-
-button.text-style {
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 0;
-  font-family: inherit;
 }
 
 

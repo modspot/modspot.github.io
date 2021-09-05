@@ -1,11 +1,13 @@
 import html from '../libs/html.js';
+import HoverModal from './hover-modal.js';
 
 export const StyledMenu = styled.div`
   display: flex;
   padding: 1em;
   font-size: 1.25em;
+  align-items: center;
 
-  * + * {
+  & > * + *:not(.option) {
     margin-left: 1em;
   }
 
@@ -22,10 +24,14 @@ export const StyledMenu = styled.div`
     color: var(--color-accent);
     font-size: 1em;
   }
+
+  ${HoverModal} .options-wrapper {
+    padding: 0.5em 1em 1em 1em;
+  }
 `;
 
 export default function Menu({ state, dispatch }) {
-  const { favorite_games = [], github_token } = state;
+  const { favorite_games = [], github_token, github_login } = state;
 
   const signout = () => {
     dispatch({
@@ -35,20 +41,36 @@ export default function Menu({ state, dispatch }) {
 
   return html`
     <${StyledMenu} class="menu">
-      <a href="/browse">Modspot</a>
+      <${HoverModal}>
+        <a class="title" href="/browse">Modspot <span></span></a>
+
+        <div class="options-wrapper">
+          <div class="options">
+            ${favorite_games.map(game => html`
+              <a class="option" href=${"/browse/?game=" + game}>${game.replace(/-/, ' ')}</a>
+            `)}
+          </div>
+        </div>
+      </${HoverModal}>
       <a href="/favorites">Favorites</a>
       <a href="/help">Help</a>
-      ${favorite_games.length > 0 && html`<span> - </span>`}
-      ${favorite_games.map(game => html`
-        <a href=${"/browse/?game=" + game}>${game.replace(/-/, ' ')}</a>
-      `)}
       <div class="spacer"></div>
+
       ${github_token === null && html`
         <a href="/welcome/github">Signin</a>
       `}
+
       ${github_token !== null && html`
-        <a href="/user/mods">My mods</a>
-        <button class="text-style" onClick=${() => signout()}>Signout</a>
+        <${HoverModal}>
+          <a class="title">${github_login} <span></span></a>
+
+          <div class="options-wrapper">
+            <div class="options">
+              <a class="option" href="/user/mods">My mods</a>
+              <button class="text-style option" onClick=${() => signout()}>Signout</a>
+            </div>
+          </div>
+        </${HoverModal}>
       `}
     </${StyledMenu}>
   `

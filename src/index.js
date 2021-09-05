@@ -7,7 +7,7 @@ const app = express();
 const port = process.env.PORT || 5000;
 const host = process.env.HOST || '127.0.0.1';
 
-app.use('/modspot', express.static('docs'));
+app.use('/', express.static('docs'));
 
 const client_id = '496a9c8ed9399e973d19';
 const client_secret = process.env.SECRET || 'change-it-during-tests';
@@ -68,5 +68,5 @@ app.post('/login/oauth/access_token', (req, res) => {
 });
 
 app.listen(port, host, () => {
-  console.log(`server listening at http://localhost:${port}/modspot`);
+  console.log(`server listening at http://localhost:${port}/`);
 });

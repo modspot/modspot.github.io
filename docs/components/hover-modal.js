@@ -7,6 +7,22 @@ const HoverModal = styled.div`
   position: relative;
   z-index: 10;
 }
+
+.title {
+  position: relative;
+
+  span::after {
+    position: absolute;
+    right: -10px;
+    top: 55%;
+    line-height: 0px;
+    content: "<";
+    transform: rotate(90deg);
+    font-size: 50%;
+    transition: .1s all ease-in-out;
+  }
+}
+
 & .options-wrapper {
   display: none;
 
@@ -48,6 +64,10 @@ const HoverModal = styled.div`
 
 &:hover {
   border-color: var(--color-very-muted-less);
+
+  span::after {
+    transform: rotate(-90deg);
+  }
 }
 &:hover .options-wrapper {
   display: block;
