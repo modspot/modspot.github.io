@@ -223,11 +223,7 @@ function DisplayRealmRepositories(props) {
   const [realm_definition, setRealmDefinition] = useState(null);
   
   useEffect(async () => {
-    const response = await fetch(repository_homepage, {
-      headers: {
-        ...fetch_headers
-      }
-    });
+    const response = await fetch(repository_homepage);
 
     if (response.status === 403) {
       setHitApiLimit(true);
