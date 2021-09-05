@@ -40,7 +40,7 @@ function App() {
         <h1>Welcome to modspot!</h1>
         <p>You are now authenticated and have access to all of modspot features</p>
 
-        <a href="/modspot">Go back to the home page</a>
+        <a href="/">Go back to the home page</a>
       </div>
     </div>
   `;
