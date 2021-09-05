@@ -31,6 +31,12 @@ export const StyledMenu = styled.div`
   }
 `;
 
+
+const makeHumanReadableGameName = topic => topic
+  .replace(/-/, ' ')
+  .replaceAll(/[0-9]/g, match => ` ${match} `)
+  .trim();
+
 export default function Menu({ state, dispatch }) {
   const { favorite_games = [], github_token, github_login } = state;
 
@@ -48,7 +54,7 @@ export default function Menu({ state, dispatch }) {
         <div class="options-wrapper">
           <div class="options">
             ${favorite_games.map(game => html`
-              <a class="option" href=${"/browse/?game=" + game}>${game.replace(/-/, ' ')}</a>
+              <a class="option" href=${"/browse/?game=" + game}>${makeHumanReadableGameName(game)}</a>
             `)}
           </div>
         </div>
