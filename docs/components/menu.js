@@ -4,6 +4,7 @@ import HoverModal from './hover-modal.js';
 export const StyledMenu = styled.div`
   display: flex;
   padding: 1em;
+  padding-right: 2em;
   font-size: 1.25em;
   align-items: center;
 
