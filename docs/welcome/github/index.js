@@ -30,12 +30,6 @@ function App() {
     github_signin_uri += "&scope=repo";
   }
 
-  useEffect(() => {
-    getAccessToken(params.code).then(token => {
-      dispatch({ type: 'setGithubToken', payload: token });
-    });
-  }, []);
-
   return html`
     <div id="app">
       <${Menu} state=${state} dispatch=${dispatch} />
