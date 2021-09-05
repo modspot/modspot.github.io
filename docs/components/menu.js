@@ -34,7 +34,7 @@ export const StyledMenu = styled.div`
 
 const makeHumanReadableGameName = topic => topic
   .replace(/-/, ' ')
-  .replaceAll(/[0-9]/g, match => ` ${match} `)
+  .replaceAll(/[0-9]+/g, match => ` ${match} `)
   .trim();
 
 export default function Menu({ state, dispatch }) {
