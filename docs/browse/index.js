@@ -3,7 +3,7 @@ import { initial_state, reducer } from './reducer.js';
 import { helpers } from '../shared-store/index.js';
 import params from '../libs/params.js';
 
-import Menu from '../components/menu.js';
+import Menu, { makeHumanReadableGameName } from '../components/menu.js';
 import Search from './search.js';
 import RepositoryList from '../components/repository-list.js';
 import searchRepositories, { searchRepositoryV3 } from '../api/search-repositories.js';
@@ -127,7 +127,7 @@ function App() {
       <div id="content">
         ${state.game && html`
           <h1>
-            ${state.game}
+            ${makeHumanReadableGameName(state.game)}
             ${ is_game_in_favorites
               ? html`<button class="text-style muted small" onClick=${() => dispatch({ type: 'removeFavoriteGame', payload: state.game })}>remove from favorites</button>`
               : html`<button class="text-style muted small" onClick=${() => dispatch({ type: 'addFavoriteGame', payload: state.game })}>add to favorites</button>`

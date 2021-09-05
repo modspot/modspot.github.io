@@ -32,7 +32,7 @@ export const StyledMenu = styled.div`
 `;
 
 
-const makeHumanReadableGameName = topic => topic
+export const makeHumanReadableGameName = topic => topic
   .replace(/-/, ' ')
   .replaceAll(/[0-9]+/g, match => ` ${match} `)
   .trim();
