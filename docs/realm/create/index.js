@@ -28,7 +28,7 @@ function App() {
   const [is_grant_message_shown, setGrantMessageShown] = useState(false);
 
   function redirectToWelcomePage() {
-    location.replace('/modspot/welcome/github?scope=repo&redirect=realm-create');
+    location.replace('/welcome/github?scope=repo&redirect=realm-create');
   }
 
   async function makeRepositoryPublic(full_name) {
@@ -213,7 +213,7 @@ function App() {
 
                     <i>
                       If you're wary of what modspot may potentially do with this token,
-                      you can look at the source code of this page <a href="https://github.com/Aelto/modspot/tree/master/docs/realm/create">here</a>
+                      you can look at the source code of this page <a href="https://github.com/modspot/modspot.github.io/tree/master/docs/realm/create">here</a>
                     </i>
                     <hr />
                   `}

@@ -52,7 +52,7 @@ export default function RepositoryMenu({ state, dispatch, repository, display_au
 
           ${display_author_menu && html`
             <!-- this link is an example, the page doesn't exist yet -->
-            <a class="option text-style" href=${`/modspot/user/mods/${repository.name}/releases/create`}>new release</a>
+            <a class="option text-style" href=${`/user/mods/${repository.name}/releases/create`}>new release</a>
           `}
         </div>
       </div>

@@ -102,7 +102,7 @@ export default function Repository(props) {
     <${StyledRepository}>
       <a href=${link_to_repository
           ? repository.url
-          : `/modspot/browse/mod?repository=${repository.owner.login}/${repository.name}`}>
+          : `/browse/mod?repository=${repository.owner.login}/${repository.name}`}>
         <div class="image" style=${{'background-image': `url('${repository.openGraphImageUrl}')` }} ></div>
         <span>${repository.name}</span>
       </a>

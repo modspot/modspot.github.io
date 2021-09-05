@@ -42,11 +42,11 @@ function App() {
             can use any amount of topics you want to make it more visible to people.
             Modspot uses the topics to search for mods. For example if you add
             the <span>witcher-3</span> topic to your project, it will become visible 
-            in the <a href="/modspot/?game=witcher-3">Witcher 3 search page</a>.
+            in the <a href="/?game=witcher-3">Witcher 3 search page</a>.
             The Witcher 3 topic was written <span>witcher-3</span> because topics
             can't contain spaces, using dashes for spaces has become the practice.
             And of course if you want to make sure your mod is also visible in
-            the <a href="/modspot/?game=witcher">witcher</a> search then you'll simply
+            the <a href="/?game=witcher">witcher</a> search then you'll simply
             have to add another topic <span>witcher</span>.
           </p>
 
@@ -181,7 +181,7 @@ function App() {
           <p>
             To add a realm to modspot use one of the following methods:
             <ul>
-              <li>Use the <a href="/modspot/realm/create">Realm creation form</a></li>
+              <li>Use the <a href="/realm/create">Realm creation form</a></li>
               <li>Use the documentation and use the <a href="https://github.com/Aelto/modspot-realm-example">realword example</a></li>
             </ul>
           </p>

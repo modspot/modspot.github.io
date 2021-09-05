@@ -13,7 +13,7 @@ const client_id = '496a9c8ed9399e973d19';
 const client_secret = process.env.SECRET || 'change-it-during-tests';
 
 const cors_options = {
-  origin: 'https://aelto.github.io'
+  origin: 'https://modspot.github.io'
 };
 
 app.get('/api/github-proxy/:code', cors(cors_options), (req, res) => {

@@ -28,7 +28,7 @@ function App() {
     }
 
     if (params.redirect === "realm-create-success") {
-      location.replace('/modspot/realm/create?from-signin=true');
+      location.replace('/realm/create?from-signin=true');
     }
   })
 

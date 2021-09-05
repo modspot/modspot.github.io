@@ -18,7 +18,7 @@ function App() {
   const [state, dispatch] = useReducer(reducer, initial_state);
 
   const oauth_uri = 'https://github.com/login/oauth/authorize';
-  let redirect_uri = 'https://aelto.github.io/modspot/welcome';
+  let redirect_uri = 'https://modspot.github.io/welcome';
 
   if (params.redirect === "realm-create") {
     redirect_uri += "?redirect=realm-create-success";

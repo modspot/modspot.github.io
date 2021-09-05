@@ -2,7 +2,7 @@ import html from '../../../libs/html.js';
 
 export default function PermissionSection({ is_grant_message_shown, setGrantMessageShown }) {
   function redirectToWelcomePage() {
-    location.replace('/modspot/welcome/github?scope=repo&redirect=mod-create');
+    location.replace('/welcome/github?scope=repo&redirect=mod-create');
   }
 
   return html`
@@ -56,7 +56,7 @@ export default function PermissionSection({ is_grant_message_shown, setGrantMess
 
               <i>
                 If you're wary of what modspot may potentially do with this token,
-                you can look at the source code of this page <a href="https://github.com/Aelto/modspot/tree/master/docs/user/mods/new">here</a>
+                you can look at the source code of this page <a href="https://github.com/Aelto/tree/master/docs/user/mods/new">here</a>
               </i>
               <hr />
             `}

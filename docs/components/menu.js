@@ -35,19 +35,19 @@ export default function Menu({ state, dispatch }) {
 
   return html`
     <${StyledMenu} class="menu">
-      <a href="/modspot/browse">Modspot</a>
-      <a href="/modspot/favorites">Favorites</a>
-      <a href="/modspot/help">Help</a>
+      <a href="/browse">Modspot</a>
+      <a href="/favorites">Favorites</a>
+      <a href="/help">Help</a>
       ${favorite_games.length > 0 && html`<span> - </span>`}
       ${favorite_games.map(game => html`
-        <a href=${"/modspot/browse/?game=" + game}>${game.replace(/-/, ' ')}</a>
+        <a href=${"/browse/?game=" + game}>${game.replace(/-/, ' ')}</a>
       `)}
       <div class="spacer"></div>
       ${github_token === null && html`
-        <a href="/modspot/welcome/github">Signin</a>
+        <a href="/welcome/github">Signin</a>
       `}
       ${github_token !== null && html`
-        <a href="/modspot/user/mods">My mods</a>
+        <a href="/user/mods">My mods</a>
         <button class="text-style" onClick=${() => signout()}>Signout</a>
       `}
     </${StyledMenu}>
