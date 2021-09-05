@@ -1,0 +1,31 @@
+{
+  "name": "mod-browser",
+  "version": "1.0.0",
+  "description": "A mod (for games) browser based on github search",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "start": "node src",
+    "prepare": "husky install",
+    "pre-commit": "node pre-commit.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Aelto/mod-browser.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Aelto/mod-browser/issues"
+  },
+  "homepage": "https://github.com/Aelto/mod-browser#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "husky": "^7.0.1"
+  }
+}

@@ -1,0 +1,259 @@
+:root {
+  --color-background: #1f1f1f;
+  --color-accent: #b4596a; /*#ee616d;*/
+  --color-accent-alternative: #91c95d;
+  --color-muted: #7f858a;
+  --color-text: white;
+  --color-very-muted-less: rgba(220, 220, 220, .1);
+  --color-very-muted: rgba(220, 220, 220, .05);
+}
+
+html, body {
+  display: flex;
+  flex-direction: column;
+  font-family: monospace;
+  font-size: 1.2em;
+
+  padding: 0;
+  margin: 0;
+  background: var(--color-background);
+  color: var(--color-text);
+}
+
+.reading-font {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 1.5em;
+  line-height: 2em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.reading-font > * {
+  max-width: 750px;
+  text-align: justify;
+}
+
+.reading-font ul li {
+  list-style: inherit;
+}
+
+.reading-font span {
+  background-color: rgba(0, 0, 0, .4);
+  padding: 1px 5px;
+  font-family: monospace;
+}
+
+a {
+  text-decoration: none;
+  color: var(--color-accent);
+  font-size: 1em;
+}
+
+a:hover, button.text-style:hover, button[type="submit"] {
+  filter: brightness(1.1);
+  text-decoration: underline;
+}
+
+hr {
+  border: none;
+  border-top: solid 1px rgba(220, 220, 220, .05);
+}
+
+.accent {
+  color: var(--color-accent);
+}
+
+.flex {
+  display: flex;
+}
+
+.column {
+  flex-direction: column;
+}
+
+.flex.center {
+  justify-content: center;
+}
+
+button.text-style {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  font-family: inherit;
+}
+
+
+
+h1 {
+  font-size: 2em;
+  text-transform: uppercase;
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+#content {
+  padding: 1em 2em;
+}
+
+input, select, textarea {
+  background: var(--color-background);
+  border: solid 1px var(--color-accent);
+  padding: 10px;
+  color: whitesmoke;
+  font-family: Bahnschrift;
+}
+
+input[type='submit'] {
+  background: none;
+  color: grey;
+  outline: none;
+  border: none;
+  border-radius: 0;
+  cursor: pointer;
+  padding: 3px;
+}
+
+.muted {
+  color: var(--color-muted);
+}
+
+.smaller {
+  font-size: .8em;
+}
+
+ul li {
+  list-style: none;
+  padding: 0;
+}
+
+.repository-list li {
+  padding: 1em;
+}
+
+.focus-repository .realm, .focus-repository .repository, .realm {
+  border: solid 1px rgba(220, 220, 220, .05);
+  background: rgba(220, 220, 220, .01);
+}
+
+.focus-repository .realm:hover, .focus-repository .repository:hover, .realm:hover {
+  border: solid 1px rgba(220, 220, 220, .1);
+  background: rgba(220, 220, 220, .02);
+}
+
+.realm-repository {
+  /* animation-name: slide-from-top; */
+  animation-duration: .2s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: 1;
+}
+
+@keyframes slide-from-top {
+  from {
+    transform: translate3d(0px, -6px, 0);
+    opacity: .9;
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+}
+
+.realm-browse {
+  position: fixed;
+  top: 10%;
+  left: 10%;
+  height: 80vh;
+  width: 80vw;
+  z-index: 2;
+  background: var(--color-background);
+  border: solid 1px var(--color-accent);
+  animation-name: slide-from-top;
+  animation-duration: .1s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: 1;
+  overflow-y: auto;
+  box-shadow: 2px 6px 24px 2px rgba(20, 20, 20, .5);
+}
+
+.realm-browse > button {
+  padding: 1em;
+}
+
+.topic-list li {
+  padding-left: 1em;
+}
+.topic-list button + a {
+  margin-left: .2em;
+}
+
+
+.hover-modal {
+  cursor: pointer;
+  margin-left: 1em;
+  padding: .2em;
+  position: relative;
+  z-index: 10;
+}
+.hover-modal .options-wrapper {
+  display: none;
+
+  position: absolute;
+  top: 90%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  padding-top: .5em;
+  min-width: 100px;
+}
+.hover-modal .options {
+  background: var(--color-background);
+  border: solid 1px var(--color-very-muted-less);
+
+  border-radius: 6px;
+  box-shadow: 3px 6px 12px 2px rgba(20, 20, 20, .2);
+
+  animation-name: slide-from-top;
+  animation-iteration-count: 1;
+  animation-duration: .25s;
+}
+.hover-modal .options .option {
+  display: block;
+  color: var(--color-text);
+  padding: .2em .4em;
+
+}
+.hover-modal:hover {
+  border-color: var(--color-very-muted-less);
+}
+.hover-modal:hover .options-wrapper {
+  display: block;
+}
+@keyframes slide-from-top {
+  from {
+    transform: translate(0, -6px);
+  }
+
+  to {
+    transform: translate(0, 0);
+  }
+}
+
+@media screen and (max-device-width: 480px) and (orientation: portrait){
+  .repository-list {
+    flex-direction: column;
+  }
+  .repository {
+    width: 100%;
+  }
+  .repository-list li + li{
+    margin-top: 4em;
+  }
+  .repository > a {
+    height: 50vh;
+  }
+
+}

@@ -1,0 +1,40 @@
+
+  #content {
+    display: flex;
+    flex-direction: column;
+    /* padding-top: 2em; */
+  }
+
+  h1 {
+    padding-left: 1em;
+    font-size: 3em;
+  }
+
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    padding: 0;
+  }
+
+  #content .topics {
+    padding-left: 1em;
+  }
+
+  #pagination {
+    display: flex;
+    justify-content: center;
+    padding: 1em;
+    font-size: 2em;
+  }
+  #pagination .page-count {
+    display: block;
+  }
+  #pagination a {
+    padding: 0 .2em;
+    transform: translateY(-5%) scale(1.5);
+  }
+
+  span button {
+    margin-left: 1em;
+  }
