@@ -1,5 +1,5 @@
-# mod-browser
-A mod (for games) browser based on github search
+# Modspot - [modspot.github.io](https://modspot.github.io/)
+A modern mod browser based on GitHub
 
 # Local environment
 The repository comes with a basic expressjs server to run the website in [localhost:5000](http://localhost:5000). To run it you will need node.js, any version should work.
