@@ -6,6 +6,7 @@ const github_username_key = 'github-login';
 export const actions = {
   setGithubToken(state, { token, login }) {
     localStorage.setItem(token_key, token);
+    localStorage.setItem(github_username_key, login);
 
     return {
       ...state,
@@ -16,6 +17,7 @@ export const actions = {
 
   removeGithubToken(state) {
     localStorage.removeItem(token_key);
+    localStorage.removeItem(github_username_key);
 
     delete state.github_token;
 
