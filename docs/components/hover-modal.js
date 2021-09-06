@@ -34,9 +34,16 @@ const HoverModal = styled.div`
   min-width: 100px;
   white-space: nowrap;
 
+  // when the origin-left class is added, the drop down menu has is no longer
+  // centered on the vertical axis. Instead it is placed on the left of its
+  // parent
   &.origin-left {
     left: 0%;
     transform: translate(-20px, 0px);
+
+    .option {
+      text-align: left;
+    }
   }
 }
 & .options {
