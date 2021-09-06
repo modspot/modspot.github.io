@@ -32,6 +32,12 @@ const HoverModal = styled.div`
   transform: translate(-50%, 0);
   padding: 0.5em 2em 2em 2em;
   min-width: 100px;
+  white-space: nowrap;
+
+  &.origin-left {
+    left: 0%;
+    transform: translate(-20px, 0px);
+  }
 }
 & .options {
   background: var(--color-background);

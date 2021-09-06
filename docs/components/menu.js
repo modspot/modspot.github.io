@@ -51,7 +51,7 @@ export default function Menu({ state, dispatch }) {
       <${HoverModal}>
         <a class="title" href="/browse">Modspot <span></span></a>
 
-        <div class="options-wrapper">
+        <div class="options-wrapper origin-left">
           <div class="options">
             ${favorite_games.map(game => html`
               <a class="option" href=${"/browse/?game=" + game}>${makeHumanReadableGameName(game)}</a>
