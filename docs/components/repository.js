@@ -107,22 +107,7 @@ export default function Repository(props) {
         <span>${repository.name}</span>
       </a>
       <div class="author muted smaller">
-        by ${is_user_already_in_favorites
-          ? html`
-            <button
-              class="text-style muted smaller underline"
-              title=${`you are following ${owner_login}, click to unfollow ${owner_login}`}
-              onClick=${() => dispatch({ type: 'removeFavoriteUser', payload: repository.owner })}>
-              ${owner_login}
-            </button>`
-          : html`
-            <button
-              class="text-style muted smaller"
-              title=${`click to follow ${owner_login}`}
-              onClick=${() => dispatch({ type: 'addFavoriteUser', payload: repository.owner })}>
-              ${owner_login}
-            </button>`
-        }
+        by <a class="text-style muted smaller" href=${`?search=user:${owner_login}`}>${owner_login}</a>
 
         <${RepositoryMenu} repository=${repository} display_author_menu=${display_author_menu} state=${state} dispatch=${dispatch} />
       </div>
